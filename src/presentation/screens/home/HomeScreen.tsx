@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import {
+  ScrollView,
   View,
   Text,
   FlatList,
@@ -8,7 +9,7 @@ import {
   Pressable,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import Ionicons from '@expo/vector-icons/Ionicons';
+import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { ProductsAPIResponse } from '../../../infrastucture/interfaces/mi-lunchera-products.response';
 import { productsApi } from '../../../config/api/productsApi';
 
@@ -37,6 +38,134 @@ export const HomeScreen = () => {
         backgroundColor: '#f3f4f6',
       }}
     >
+      <View
+        style={{
+          width: '100%',
+          paddingHorizontal: 28,
+        }}
+      >
+        <Text
+          style={{
+            fontSize: 32,
+            fontWeight: '800',
+            color: '#172554',
+            fontStyle: 'italic',
+          }}
+        >
+          Mi lunchera
+        </Text>
+        <Text
+          style={{
+            fontSize: 28,
+            fontWeight: '800',
+            color: '#172554',
+          }}
+        >
+          Menú del día
+        </Text>
+        <Ionicons
+          name='search-outline'
+          size={36}
+          color='#172554'
+          style={{
+            position: 'absolute',
+            top: 10,
+            right: 28,
+          }}
+        />
+        <ScrollView
+          style={{
+            paddingVertical: 20,
+          }}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+        >
+          <View
+            style={{
+              marginRight: 20,
+              backgroundColor: '#172554',
+              paddingVertical: 8,
+              paddingHorizontal: 16,
+              borderRadius: 20,
+              flexDirection: 'row',
+              alignItems: 'center',
+              gap: 8,
+            }}
+          >
+            <Text>
+              <MaterialCommunityIcons
+                name='food-drumstick-outline'
+                size={24}
+                color='#FFF'
+              />
+            </Text>
+            <Text
+              style={{
+                color: '#FFF',
+                fontSize: 16,
+              }}
+            >
+              Comidas
+            </Text>
+          </View>
+          <View
+            style={{
+              marginRight: 20,
+              backgroundColor: '#e5e7eb',
+              paddingVertical: 8,
+              paddingHorizontal: 16,
+              borderRadius: 20,
+              flexDirection: 'row',
+              alignItems: 'center',
+              gap: 8,
+            }}
+          >
+            <Text>
+              <MaterialCommunityIcons
+                name='bottle-soda-classic-outline'
+                size={24}
+                color='#172554'
+              />
+            </Text>
+            <Text
+              style={{
+                color: '#172554',
+                fontSize: 16,
+              }}
+            >
+              Bebidas
+            </Text>
+          </View>
+          <View
+            style={{
+              marginRight: 20,
+              backgroundColor: '#e5e7eb',
+              paddingVertical: 8,
+              paddingHorizontal: 16,
+              borderRadius: 20,
+              flexDirection: 'row',
+              alignItems: 'center',
+              gap: 8,
+            }}
+          >
+            <Text>
+              <MaterialCommunityIcons
+                name='cupcake'
+                size={24}
+                color='#172554'
+              />
+            </Text>
+            <Text
+              style={{
+                color: '#172554',
+                fontSize: 16,
+              }}
+            >
+              Postres
+            </Text>
+          </View>
+        </ScrollView>
+      </View>
       {products.length > 0 ? (
         <FlatList
           showsVerticalScrollIndicator={false}
@@ -81,11 +210,20 @@ export const HomeScreen = () => {
                   padding: 8,
                 }}
               >
-                <Text>{item.name}</Text>
+                <Text
+                  style={{
+                    color: '#172554',
+                    fontWeight: '800',
+                    fontSize: 16,
+                  }}
+                >
+                  {item.name}
+                </Text>
                 <Text
                   style={{
                     color: '#b45309',
-                    fontWeight: '600',
+                    fontWeight: '800',
+                    fontSize: 18,
                   }}
                 >
                   $ {item.price}
