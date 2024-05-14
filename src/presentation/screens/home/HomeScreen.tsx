@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
-import { ScrollView, View, Text, FlatList } from 'react-native';
+import { View, Text, FlatList } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { ProductsAPIResponse } from '../../../infrastucture/interfaces/mi-lunchera-products.response';
 import { productsApi } from '../../../config/api/productsApi';
 import { CardImage } from '../../components/Home/CardImage';
 import { CardCaption } from '../../components/Home/CardCaption';
 import { Card } from '../../components/Home/Card';
+import { CategoryBar } from '../../components/Home/CategoryBar';
 
 export const HomeScreen = () => {
   const [products, setProducts] = useState<ProductsAPIResponse[]>([]);
@@ -57,8 +58,8 @@ export const HomeScreen = () => {
         >
           Menú del día
         </Text>
-        <Ionicons
-          name='search-outline'
+        <MaterialCommunityIcons
+          name='store-search-outline'
           size={36}
           color='#172554'
           style={{
@@ -67,98 +68,7 @@ export const HomeScreen = () => {
             right: 28,
           }}
         />
-        <ScrollView
-          style={{
-            paddingVertical: 20,
-          }}
-          horizontal
-          showsHorizontalScrollIndicator={false}
-        >
-          <View
-            style={{
-              marginRight: 20,
-              backgroundColor: '#172554',
-              paddingVertical: 8,
-              paddingHorizontal: 16,
-              borderRadius: 20,
-              flexDirection: 'row',
-              alignItems: 'center',
-              gap: 8,
-            }}
-          >
-            <Text>
-              <MaterialCommunityIcons
-                name='food-drumstick-outline'
-                size={24}
-                color='#FFF'
-              />
-            </Text>
-            <Text
-              style={{
-                color: '#FFF',
-                fontSize: 16,
-              }}
-            >
-              Comidas
-            </Text>
-          </View>
-          <View
-            style={{
-              marginRight: 20,
-              backgroundColor: '#e5e7eb',
-              paddingVertical: 8,
-              paddingHorizontal: 16,
-              borderRadius: 20,
-              flexDirection: 'row',
-              alignItems: 'center',
-              gap: 8,
-            }}
-          >
-            <Text>
-              <MaterialCommunityIcons
-                name='bottle-soda-classic-outline'
-                size={24}
-                color='#172554'
-              />
-            </Text>
-            <Text
-              style={{
-                color: '#172554',
-                fontSize: 16,
-              }}
-            >
-              Bebidas
-            </Text>
-          </View>
-          <View
-            style={{
-              marginRight: 20,
-              backgroundColor: '#e5e7eb',
-              paddingVertical: 8,
-              paddingHorizontal: 16,
-              borderRadius: 20,
-              flexDirection: 'row',
-              alignItems: 'center',
-              gap: 8,
-            }}
-          >
-            <Text>
-              <MaterialCommunityIcons
-                name='cupcake'
-                size={24}
-                color='#172554'
-              />
-            </Text>
-            <Text
-              style={{
-                color: '#172554',
-                fontSize: 16,
-              }}
-            >
-              Postres
-            </Text>
-          </View>
-        </ScrollView>
+        <CategoryBar />
       </View>
       {products.length > 0 ? (
         <FlatList
