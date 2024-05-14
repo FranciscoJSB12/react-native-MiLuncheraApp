@@ -1,14 +1,14 @@
 import { View, Image, StyleSheet } from 'react-native';
 
 interface Props {
-  product: any;
+  item: any;
 }
 
-export const ProductCardImage = ({ product }: Props) => {
+export const CardImage = ({ item }: Props) => {
   return (
-    <View style={styles.image}>
+    <View style={styles.imageContainer}>
       <Image
-        source={{ uri: product.image }}
+        source={{ uri: item.image }}
         resizeMode='cover'
         style={styles.image}
       />
@@ -19,7 +19,7 @@ export const ProductCardImage = ({ product }: Props) => {
 const styles = StyleSheet.create({
   imageContainer: {
     flex: 4,
-    padding: 4,
+    padding: 8,
   },
   image: {
     flex: 1,

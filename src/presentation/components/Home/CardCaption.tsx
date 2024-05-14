@@ -1,24 +1,24 @@
 import { View, Text, Pressable, StyleSheet } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 interface Props {
-  product: any;
+  item: any;
 }
 
-export const ProductCardCaption = ({ product }: Props) => {
+export const CardCaption = ({ item }: Props) => {
   return (
     <View style={styles.captionContainer}>
-      <Text style={styles.name}>{product.name}</Text>
-      <Text style={styles.price}>$ {product.price}</Text>
+      <Text style={styles.name}>{item.name}</Text>
+      <Text style={styles.price}>$ {item.price}</Text>
       <Pressable
         style={styles.pressablebtn}
-        onPress={() => console.log(product.name)}
+        onPress={() => console.log(item.name)}
       >
         <View style={styles.btnContainer}>
-          <Ionicons
-            name='add'
+          <MaterialCommunityIcons
+            name='plus'
             size={24}
-            color='white'
+            color='#FFF'
           />
         </View>
       </Pressable>

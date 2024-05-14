@@ -1,22 +1,16 @@
 import { useEffect, useState } from 'react';
-import {
-  ScrollView,
-  View,
-  Text,
-  FlatList,
-  useWindowDimensions,
-  Image,
-  Pressable,
-} from 'react-native';
+import { ScrollView, View, Text, FlatList } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { ProductsAPIResponse } from '../../../infrastucture/interfaces/mi-lunchera-products.response';
 import { productsApi } from '../../../config/api/productsApi';
+import { CardImage } from '../../components/Home/CardImage';
+import { CardCaption } from '../../components/Home/CardCaption';
+import { Card } from '../../components/Home/Card';
 
 export const HomeScreen = () => {
   const [products, setProducts] = useState<ProductsAPIResponse[]>([]);
   const { top } = useSafeAreaInsets();
-  const { width } = useWindowDimensions();
 
   useEffect(() => {
     (async () => {
@@ -175,83 +169,10 @@ export const HomeScreen = () => {
           data={products}
           numColumns={2}
           renderItem={({ item }) => (
-            <View
-              style={{
-                width: width * 0.425,
-                height: width * 0.6,
-                marginHorizontal: 8,
-                marginVertical: 12,
-                borderRadius: 16,
-                backgroundColor: '#e5e7eb',
-                elevation: 20,
-              }}
-            >
-              <View
-                style={{
-                  flex: 4,
-                  padding: 4,
-                }}
-              >
-                <Image
-                  source={{ uri: item.image }}
-                  resizeMode='cover'
-                  style={{
-                    flex: 1,
-                    width: '100%',
-                    borderRadius: 16,
-                  }}
-                />
-              </View>
-              <View
-                style={{
-                  flex: 1,
-                  borderBottomLeftRadius: 16,
-                  borderBottomRightRadius: 16,
-                  padding: 8,
-                }}
-              >
-                <Text
-                  style={{
-                    color: '#172554',
-                    fontWeight: '800',
-                    fontSize: 16,
-                  }}
-                >
-                  {item.name}
-                </Text>
-                <Text
-                  style={{
-                    color: '#b45309',
-                    fontWeight: '800',
-                    fontSize: 18,
-                  }}
-                >
-                  $ {item.price}
-                </Text>
-                <Pressable
-                  style={{
-                    position: 'absolute',
-                    right: 8,
-                    top: 8,
-                  }}
-                  onPress={() => console.log(item.name)}
-                >
-                  <View
-                    style={{
-                      backgroundColor: '#f59e0b',
-                      padding: 4,
-                      borderRadius: 4,
-                    }}
-                  >
-                    <Ionicons
-                      name='add'
-                      size={24}
-                      color='white'
-                    />
-                  </View>
-                </Pressable>
-              </View>
-            </View>
+            <Card>
+              <CardImage item={item} />
+              <CardCaption item={item} />
+            </Card>
           )}
           keyExtractor={item => item.id}
         />

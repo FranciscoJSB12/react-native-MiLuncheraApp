@@ -5,7 +5,7 @@ interface Props {
   children: ReactNode;
 }
 
-export const ProductCard = ({ children }: Props) => {
+export const Card = ({ children }: Props) => {
   const { width } = useWindowDimensions();
   return (
     <View
