@@ -1,5 +1,6 @@
 import { View, Text, Pressable, StyleSheet } from 'react-native';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { lightThemeColors } from '../../../config/theme/global-theme';
 
 interface Props {
   item: any;
@@ -18,7 +19,7 @@ export const CardCaption = ({ item }: Props) => {
           <MaterialCommunityIcons
             name='plus'
             size={24}
-            color='#FFF'
+            color={lightThemeColors.lightGray}
           />
         </View>
       </Pressable>
@@ -34,17 +35,17 @@ const styles = StyleSheet.create({
     padding: 8,
   },
   name: {
-    color: '#172554',
+    color: lightThemeColors.darkBlue,
     fontWeight: '800',
     fontSize: 16,
   },
   price: {
-    color: '#b45309',
+    color: lightThemeColors.darkOrange,
     fontWeight: '800',
     fontSize: 18,
   },
   btnContainer: {
-    backgroundColor: '#f59e0b',
+    backgroundColor: lightThemeColors.mediumOrange,
     padding: 4,
     borderRadius: 4,
   },

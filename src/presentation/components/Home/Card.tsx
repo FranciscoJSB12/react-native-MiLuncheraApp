@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { View, useWindowDimensions, StyleSheet } from 'react-native';
+import { lightThemeColors } from '../../../config/theme/global-theme';
 
 interface Props {
   children: ReactNode;
@@ -27,7 +28,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 8,
     marginVertical: 12,
     borderRadius: 16,
-    backgroundColor: '#e5e7eb',
+    backgroundColor: lightThemeColors.lightGray,
     elevation: 20,
   },
 });

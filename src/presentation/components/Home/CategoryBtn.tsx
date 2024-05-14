@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { lightThemeColors } from '../../../config/theme/global-theme';
 
 interface Props {
   isActive: boolean;
@@ -14,14 +15,18 @@ export const CategoryBtn = ({
   iconName,
   onPress,
 }: Props) => {
-  const textColor = isActive ? '#FFF' : '#172554';
+  const textColor = isActive
+    ? lightThemeColors.white
+    : lightThemeColors.darkBlue;
 
   return (
     <Pressable onPress={() => onPress()}>
       <View
         style={[
           {
-            backgroundColor: isActive ? '#172554' : '#e5e7eb',
+            backgroundColor: isActive
+              ? lightThemeColors.darkBlue
+              : lightThemeColors.lightGray,
           },
           styles.container,
         ]}

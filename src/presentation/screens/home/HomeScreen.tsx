@@ -7,6 +7,7 @@ import { HomeHeader } from '../../components/Home/HomeHeader';
 import { CardImage } from '../../components/Home/CardImage';
 import { CardCaption } from '../../components/Home/CardCaption';
 import { Card } from '../../components/Home/Card';
+import { lightThemeColors } from '../../../config/theme/global-theme';
 
 export const HomeScreen = () => {
   const [products, setProducts] = useState<ProductsAPIResponse[]>([]);
@@ -60,6 +61,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     paddingBottom: 40,
-    backgroundColor: '#f3f4f6',
+    backgroundColor: lightThemeColors.lightGray,
   },
 });
