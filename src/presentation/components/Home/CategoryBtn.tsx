@@ -26,7 +26,7 @@ export const CategoryBtn = ({
           {
             backgroundColor: isActive
               ? lightThemeColors.darkBlue
-              : lightThemeColors.lightGray,
+              : lightThemeColors.white,
           },
           styles.container,
         ]}

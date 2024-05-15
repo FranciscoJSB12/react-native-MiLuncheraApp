@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { ProductsAPIResponse } from '../../../infrastucture/interfaces/mi-lunchera-products.response';
-import { productsApi } from '../../../config/api/productsApi';
+import type { Product } from '../../../domain/entities/product';
+import { getProductsByPage } from '../../../actions/products/get-products-by-page';
 import { HomeHeader } from '../../components/Home/HomeHeader';
 import { CardImage } from '../../components/Home/CardImage';
 import { CardCaption } from '../../components/Home/CardCaption';
@@ -10,17 +10,13 @@ import { Card } from '../../components/Home/Card';
 import { lightThemeColors } from '../../../config/theme/global-theme';
 
 export const HomeScreen = () => {
-  const [products, setProducts] = useState<ProductsAPIResponse[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const { top } = useSafeAreaInsets();
 
   useEffect(() => {
-    (async () => {
-      const { data } = await productsApi.get<ProductsAPIResponse[]>(
-        '/products'
-      );
-
-      setProducts(data);
-    })();
+    getProductsByPage()
+      .then(data => setProducts(data))
+      .catch(err => console.log(err));
   }, []);
 
   return (

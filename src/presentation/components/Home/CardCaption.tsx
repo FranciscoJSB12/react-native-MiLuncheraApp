@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   price: {
-    color: lightThemeColors.darkOrange,
+    color: lightThemeColors.mediumOrange,
     fontWeight: '800',
     fontSize: 18,
   },
