@@ -1,9 +1,13 @@
+import { ReactNode } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import { CategoryBar } from './CategoryBar';
 import { lightThemeColors } from '../../../config/theme/global-theme';
 
-export const HomeHeader = () => {
+interface Props {
+  children: ReactNode;
+}
+
+export const HomeHeader = ({ children }: Props) => {
   return (
     <View style={styles.container}>
       <Text style={styles.mainTitle}>Mi lunchera</Text>
@@ -14,7 +18,7 @@ export const HomeHeader = () => {
         color={lightThemeColors.darkBlue}
         style={styles.iconStyle}
       />
-      <CategoryBar />
+      {children}
     </View>
   );
 };
