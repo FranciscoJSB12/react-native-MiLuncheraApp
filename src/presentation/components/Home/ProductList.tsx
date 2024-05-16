@@ -13,7 +13,9 @@ export const ProductList = ({ items }: Props) => {
     <FlatList
       showsVerticalScrollIndicator={false}
       contentContainerStyle={{
-        padding: 4,
+        paddingTop: 4,
+        paddingHorizontal: 4,
+        paddingBottom: 40,
       }}
       data={items}
       numColumns={2}

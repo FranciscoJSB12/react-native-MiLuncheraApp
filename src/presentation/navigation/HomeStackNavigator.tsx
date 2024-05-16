@@ -3,7 +3,7 @@ import { HomeScreen } from '../screens/home/HomeScreen';
 
 const Stack = createStackNavigator();
 
-export const StackNavigator = () => {
+export const HomeStackNavigator = () => {
   return (
     <Stack.Navigator
       screenOptions={{
