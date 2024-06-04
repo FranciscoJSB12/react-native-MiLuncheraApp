@@ -1,6 +1,6 @@
 # MiLuncheraApp
 
-Mi Lunchera es una aplicación móvil multiplataforma para IOS y Android para un emprendimiento de ventas de comida.
+Mi Lunchera es una aplicación móvil multiplataforma destinada a IOS y Android para un emprendimiento de ventas de comida.
 
 <p align="center">
     <img src="https://i.imgur.com/3To7VZT.jpg" width="230" height="400" title="Mi Lunchera App Master">
